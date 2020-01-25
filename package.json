@@ -1,0 +1,25 @@
+{
+  "name": "School_API",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint ./",
+    "start": "cross-env PORT=3000 nodemon index.js"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.4.1",
+    "mongoose": "^5.8.5"
+  }
+}
