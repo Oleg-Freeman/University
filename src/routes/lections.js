@@ -39,4 +39,20 @@ router.route('/:id').delete((req, res) => {
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
+router.route('/update/:id').post((req, res) => {
+  Lection.findById(req.params.id)
+    .then((lection) => {
+      lection.lectionTopic = req.body.lectionTopic;
+      lection.lecturers = req.body.lecturers;
+      lection.studentsGroup = req.body.studentsGroup;
+      lection.classNo = Number(req.body.classNo);
+      lection.duration = Number(req.body.duration);
+
+      lection.save()
+        .then(() => res.json('Lection updated!'))
+        .catch((err) => res.status(400).json(`Error: ${err}`));
+    })
+    .catch((err) => res.status(400).json(`Error: ${err}`));
+});
+
 module.exports = router;
