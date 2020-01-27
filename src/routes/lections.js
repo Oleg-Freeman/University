@@ -12,14 +12,16 @@ router.route('/add').post((req, res) => {
   const lecturers = req.body.lecturers;
   const studentsGroup = req.body.studentsGroup;
   const classNo = Number(req.body.classNo);
-  const duration = Number(req.body.duration);
+  const lectionStart = Date.parse(req.body.lectionStart);
+  const lectionEnd = Date.parse(req.body.lectionEnd);
 
   const newLection = new Lection({
     lectionTopic,
     lecturers,
     studentsGroup,
     classNo,
-    duration,
+    lectionStart,
+    lectionEnd,
   });
 
   newLection.save()
@@ -46,7 +48,8 @@ router.route('/update/:id').post((req, res) => {
       lection.lecturers = req.body.lecturers;
       lection.studentsGroup = req.body.studentsGroup;
       lection.classNo = Number(req.body.classNo);
-      lection.duration = Number(req.body.duration);
+      lection.lectionStart = Date.parse(req.body.lectionStart);
+      lection.lectionEnd = Date.parse(req.body.lectionEnd);
 
       lection.save()
         .then(() => res.json('Lection updated!'))

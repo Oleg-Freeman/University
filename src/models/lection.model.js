@@ -17,8 +17,9 @@ const lectionSchema = new Schema({
     }],
   }],
   classNo: { type: Number, required: true },
-  duration: { type: Number, required: true },
-});
+  lectionStart: { type: Date, required: true },
+  lectionEnd: { type: Date, required: true },
+}, { timestamps: true });
 
 const Lection = mongoose.model('Lection', lectionSchema);
 
