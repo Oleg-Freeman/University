@@ -27,4 +27,16 @@ router.route('/add').post((req, res) => {
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
+router.route('/:id').get((req, res) => {
+  Lection.findById(req.params.id)
+    .then((lection) => res.json(lection))
+    .catch((err) => res.status(400).json(`Error: ${err}`));
+});
+
+router.route('/:id').delete((req, res) => {
+  Lection.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Lection deleted.'))
+    .catch((err) => res.status(400).json(`Error: ${err}`));
+});
+
 module.exports = router;
