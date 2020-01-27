@@ -14,6 +14,10 @@ connectDb(uriDb);
 app.use(cors());
 app.use(express.json());
 
+const lectionsRouter = require('./routes/lections');
+
+app.use('/lections', lectionsRouter);
+
 app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
 });
