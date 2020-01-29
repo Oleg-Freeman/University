@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const morgan = require('morgan');
 const connectDb = require('./db');
 
 require('dotenv').config({ path: './src/config/.env' });
@@ -13,8 +14,9 @@ connectDb(uriDb);
 
 app.use(cors());
 app.use(express.json());
+app.use(morgan('tiny'));
 
-const lectionsRouter = require('./routes/lections');
+const lectionsRouter = require('./routes');
 
 app.use('/lections', lectionsRouter);
 
